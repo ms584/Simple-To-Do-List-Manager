@@ -1,3 +1,5 @@
+# Simple To-Do List Manager
+
 def show_menu():
     print("\n--- Simple To-Do List Manager ---")
     print("1. Add Task")
@@ -30,20 +32,41 @@ def main():
             view_tasks(tasks)
 
         elif choice == "3":
+            if not tasks:
+                print("No tasks to mark as done.")
+                continue
             view_tasks(tasks)
-            task_num = int(input("Enter task number to mark as done: "))
-            tasks[task_num - 1]["done"] = True
-            print("Task marked as done!")
+            try:
+                task_num = int(input("Enter task number to mark as done: "))
+                if 1 <= task_num <= len(tasks):
+                    tasks[task_num - 1]["done"] = True
+                    print("Task marked as done!")
+                else:
+                    print("Invalid task number. Please try again.")
+            except ValueError:
+                print("Please enter a valid number.")
 
         elif choice == "4":
+            if not tasks:
+                print("No tasks to delete.")
+                continue
             view_tasks(tasks)
-            task_num = int(input("Enter task number to delete: "))
-            deleted = tasks.pop(task_num - 1)
-            print(f"Task '{deleted['title']}' deleted.")
+            try:
+                task_num = int(input("Enter task number to delete: "))
+                if 1 <= task_num <= len(tasks):
+                    deleted = tasks.pop(task_num - 1)
+                    print(f"Task '{deleted['title']}' deleted.")
+                else:
+                    print("Invalid task number. Please try again.")
+            except ValueError:
+                print("Please enter a valid number.")
 
         elif choice == "5":
-            print("Exiting program...")
+            print("Exiting program. Goodbye!")
             break
+
+        else:
+            print("Invalid choice. Please enter a number from 1 to 5.")
 
 if __name__ == "__main__":
     main()

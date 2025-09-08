@@ -1,18 +1,21 @@
-# Simple To-Do List Manager
+How to Run this project on your PC
 
-A simple Python program to manage your To-Do List.
+1. Open Your Terminal or Command Prompt
+Windows: Open Git Bash (which is installed with Git), Command Prompt, or PowerShell.
 
-## Features
-- Add a new task
-- View all tasks
-- Mark a task as done
-- Delete a task
-- Exit the program
+2. Navigate to Your Desired Directory
 
-## How to Use
-1. Download or clone this project
-2. Run the `todolist.py` file using Python 3
-3. Select menu options to manage your tasks
+```
+# Example: Navigate to your "Documents" folder, then a "Projects" subfolder
+cd Documents/Projects
+```
 
-```bash
-python todolist.py
+3. Type git clone and then paste the URL you copied from GitHub.
+
+```
+git clone https://github.com/ms584/Simple-To-Do-List-Manager.git
+```
+
+4. Press Enter. Git will now download the repository into a new folder named after the project (in this case, example-repository).
+
+You now have a local copy. You can navigate into the new project directory to start working.
