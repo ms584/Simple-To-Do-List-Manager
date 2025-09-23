@@ -1,17 +1,36 @@
 # Full-Stack To-Do List Application
 
-This is a complete full-stack web application featuring a modern frontend, a robust backend, and a fully containerized deployment environment using Docker. The application allows users to create, view, update, and delete tasks.
+This is a complete full-stack web application featuring a modern frontend, a robust backend, and a fully containerized deployment environment using Docker. The application allows users to create, view, update, and delete tasks in a clean, responsive interface.
 
- 
+---
+
+## Live Demo
+
+**Check out the live application hosted on Render:**
+
+**[https://simple-to-do-list-manager-kp87.onrender.com](https://simple-to-do-list-manager-kp87.onrender.com)**
+
+*Note: The free tier on Render may cause the backend to "spin down" after 15 minutes of inactivity. The first request might take 30-60 seconds to "wake up" the service.*
+
+---
+
+## Application Preview
+
+![Screenshot of the To-Do List Application](https://github.com/user-attachments/assets/3fbe6585-0f80-41cb-8972-272706b7a901)
+
+
+---
 
 ## Features
 
 *   **Modern Frontend:** A clean, responsive user interface built with **React**.
 *   **Robust Backend:** A powerful and fast API built with **Python** and **FastAPI**.
-*   **Persistent Storage:** Tasks are saved in a `tasks.json` file, with data persistence handled by Docker volumes.
+*   **Persistent Storage:** Tasks are saved in a `tasks.json` file, with data persistence handled by Docker volumes for local development.
 *   **Containerized:** The entire application stack is containerized with **Docker** and orchestrated with **Docker Compose** for easy, reproducible deployments.
 *   **Secure:** Built with security in mind, leveraging modern framework features to protect against common vulnerabilities like XSS and invalid data injection.
 *   **Tested:** Includes a complete test suite for the backend API using **Pytest**.
+
+---
 
 ## Tech Stack
 
@@ -20,8 +39,11 @@ This is a complete full-stack web application featuring a modern frontend, a rob
 *   **Web Server/Proxy:** Nginx
 *   **Containerization:** Docker & Docker Compose
 *   **Testing:** Pytest, Node.js (for security script)
+*   **Deployment:** Render
 
-### Project Structure
+---
+
+## Project Structure
 
 The project is organized into a clean, modern monorepo structure with clear separation between the frontend, backend, data, and utility scripts.
 
@@ -62,36 +84,25 @@ simple_todolist_finalmini/
     └── comprehensive-security-test.js # Utility script for security testing.
 ```
 
-### Key Components
-
-*   **`docker-compose.yml`**: The master file for Docker Compose. It defines all services (`backend`, `frontend`), networks, and volumes. This is the entry point for running the entire application.
-*   **`backend/`**: Contains the Python FastAPI application, including all API logic (`main.py`) and tests (`tests/`).
-*   **`frontend/`**: Contains the React application, including all UI components (`src/`), static assets (`public/`), and the Nginx configuration (`nginx.conf`).
-*   **`Dockerfile`s**: Each service directory (`backend`, `frontend`) contains a `Dockerfile` that defines the steps to build its respective container image.
-*   **`backend-data/`**: A persistent volume mount for the application's data. The `tasks.json` file is stored here to ensure data is not lost when containers are stopped or rebuilt.
-*   **`scripts/`**: Contains utility and testing scripts, such as the comprehensive security scan.
-*   **`.gitignore`**: Specifies intentionally untracked files (like `node_modules` and `.venv`) to exclude from Git version control.
 
 ---
 
-## Getting Started
+## Local Development Setup
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-You must have the following software installed on your machine:
-
-1.  **Docker & Docker Compose:** This is the only essential requirement to run the entire application stack.
-    *   [Install Docker Desktop](https://www.docker.com/products/docker-desktop/) (includes Docker Compose)
-2.  **Node.js & npm:** Required only for running the security test script.
+*   **Docker & Docker Compose:** The only essential requirement.
+    *   [Install Docker Desktop](https://www.docker.com/products/docker-desktop/)
+*   **Node.js & npm:** Required *only* for running the security test script.
     *   [Install Node.js](https://nodejs.org/)
-3.  **Git:** For cloning the repository.
+*   **Git:** For cloning the repository.
     *   [Install Git](https://git-scm.com/downloads)
 
-### Installation & Running the Application
+### Installation & Running
 
-Running this application is incredibly simple thanks to Docker.
+Running this application locally is incredibly simple thanks to Docker.
 
 1.  **Clone the repository:**
     ```bash
@@ -100,7 +111,7 @@ Running this application is incredibly simple thanks to Docker.
     ```
 
 2.  **Build and run the containers:**
-    This single command will build the frontend and backend images, create the necessary containers and networks, and start the application.
+    This single command builds the images, creates the containers, and starts the application.
     ```bash
     docker compose up --build
     ```
@@ -110,7 +121,7 @@ Running this application is incredibly simple thanks to Docker.
     Once the containers are running, open your web browser and navigate to:
     > **`http://localhost`**
 
-To stop the application, press `Ctrl+C` in the terminal where it is running. If it's running in the background, use the command `docker compose down`.
+To stop the application, press `Ctrl+C` in the terminal. If running in the background, use `docker compose down`.
 
 ---
 
@@ -120,7 +131,7 @@ The project includes a full suite of tests for the backend API and a security sc
 
 ### Backend API Tests (Pytest)
 
-These tests verify the core functionality of the API endpoints (GET, POST, PUT, DELETE). The most reliable way to run these is inside the Docker container to ensure the environment is identical to production.
+The most reliable way to run tests is inside the Docker container to ensure the environment is identical to production.
 
 1.  **Ensure the application is running:**
     ```bash
@@ -131,60 +142,47 @@ These tests verify the core functionality of the API endpoints (GET, POST, PUT, 
     ```bash
     docker compose exec backend pytest
     ```
-    You should see all tests pass successfully.
 
 ### Security Vulnerability Scan
 
-This project includes a Node.js script that tests the API for common vulnerabilities such as XSS, DOM manipulation, NoSQL injection, and malformed JSON payloads.
+This script tests the API for common vulnerabilities like XSS and malformed JSON payloads.
 
 1.  **Ensure the application is running:**
     ```bash
     docker compose up -d
     ```
 
-2.  **Install the script's dependencies:**
-    (You only need to do this once)
+2.  **Install script dependencies (first time only):**
     ```bash
     npm install
     ```
 
-3.  **Run the security test script:**
+3.  **Run the security test:**
     ```bash
     node scripts/comprehensive-security-test.js
     ```
-    The script will output its results to the console, demonstrating the application's resilience to these common attacks.
 
 ---
 
 ## Deployment
 
-This application is designed for easy deployment to any cloud hosting provider that supports Docker.
+This application was deployed using **Render's** free tier. The process leverages the containerized nature of the project for a smooth deployment.
 
-1.  **Provision a Server:** Get a cloud server (VPS) from a provider like DigitalOcean, Linode, Vultr, etc. A basic server running **Ubuntu 22.04 LTS** is recommended.
+1.  **Push to GitHub:** Ensure your latest code is on the `main` branch of your GitHub repository.
+2.  **Deploy the Backend on Render:**
+    *   Create a new **Web Service**.
+    *   Set the **Environment** to **Docker**.
+    *   Set the **Root Directory** to `backend`.
+    *   Render will build the `Dockerfile` and deploy the service, providing a public URL (e.g., `https://my-backend.onrender.com`).
+3.  **Deploy the Frontend on Render:**
+    *   Create a new **Static Site**.
+    *   Set the **Root Directory** to `frontend`.
+    *   Set the **Build Command** to `npm run build` and the **Publish Directory** to `build`.
+    *   Add an **Environment Variable** with the key `REACT_APP_API_URL` and the value set to your backend's URL with `/api` appended (e.g., `https://my-backend.onrender.com/api`).
+    *   Render will deploy the static site, giving you the final public URL.
 
-2.  **Install Tools on the Server:**
-    Connect to your server via SSH and install Git and Docker.
-    ```bash
-    # Update package list
-    sudo apt update
-    # Install Git
-    sudo apt install git -y
-    # Install Docker (follow the official Docker guide for Ubuntu)
-    ```
+---
 
-3.  **Clone Your Repository:**
-    On the server, clone your project from GitHub.
-    ```bash
-    git clone https://github.com/ms584/Simple-To-Do-List-Manager.git
-    cd Simple-To-Do-List-Manager
-    ```
+## License
 
-4.  **Run the Application:**
-    Use Docker Compose to build and run your application in detached mode.
-    ```bash
-    docker compose up --build -d
-    ```
-
-5.  **Access Your Live Site:**
-    Your To-Do List application is now live and accessible to anyone in the world via your server's public IP address:
-    > **`http://<your_server_ip_address>`**
+This project is open source and available under the [MIT License](LICENSE).
