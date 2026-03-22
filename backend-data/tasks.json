@@ -1,66 +1,66 @@
 [
     {
-        "id": "8d05cbf5-4f76-42bb-83ee-6ca72fb5c147",
+        "id": "8e6800ac-ea5c-43d8-9939-fdfab75c44f6",
         "title": "<script>alert('Stored XSS 1')</script>",
         "done": false
     },
     {
-        "id": "e547958c-f56a-4310-86db-14eaaf3b0dc3",
+        "id": "173c53cb-65b9-4a7b-abd5-8480bb748502",
         "title": "<img src=x onerror=alert('Stored XSS 2')>",
         "done": false
     },
     {
-        "id": "d9359565-8f72-4d5e-b21b-c84037a80898",
+        "id": "90e8d0d4-fbde-4521-8ec1-a048065b8ba6",
         "title": "My Task\" onmouseover=\"alert('Stored XSS 3')",
         "done": false
     },
     {
-        "id": "86da774a-602c-4f90-8814-a4d5f19bf251",
+        "id": "87c276e2-de58-4140-a4f4-ba39fb9fc0bc",
         "title": "<a href=\"javascript:alert('Stored XSS 4')\">Click Me</a>",
         "done": false
     },
     {
-        "id": "809f6893-3f55-4977-9874-ee40dce41b4c",
+        "id": "5ee8a0e5-18c6-4ac3-aa79-f7055bbdd8ae",
         "title": "<h1>This should not be a heading</h1>",
         "done": false
     },
     {
-        "id": "a45f7d04-813f-4f61-8552-1686bcb24b91",
+        "id": "24eebf34-db95-464a-b95a-cee2c79d6c66",
         "title": "<div id=\"new_element\">Injecting a div</div>",
         "done": false
     },
     {
-        "id": "69228de1-e463-4683-a7f8-e3837ec0ab8e",
+        "id": "0f6b5c0d-2ffb-4153-b7ad-aec3f5026abd",
         "title": "{\"$ne\": \"some_value\"}",
         "done": false
     },
     {
-        "id": "8910aefe-953d-41ae-8e3a-de57d80fbb13",
+        "id": "b8f2b52e-04f7-41e6-86bb-95296875b659",
         "title": "{\"$gt\": \"\"}",
         "done": false
     },
     {
-        "id": "83b9dc8e-826f-4a68-9dc6-a5cb80fae583",
+        "id": "343d9a9e-5c60-4e85-8ac6-45dc3697b891",
         "title": "{\"$where\": \"sleep(1000)\"}",
         "done": false
     },
     {
-        "id": "c9cd46a1-bee4-42fe-933e-77bdcdb0f52d",
+        "id": "f5599640-495e-4ef9-a278-09eb542877bd",
         "title": "{{7*7}}",
         "done": false
     },
     {
-        "id": "70082a7e-353b-4a98-b1c4-b151f59e7513",
+        "id": "39e3657f-4d99-41a4-8338-ba2f6d13c92e",
         "title": "<%= 7*7 %>",
         "done": false
     },
     {
-        "id": "763df065-10a3-4aa9-a193-91e252759a11",
+        "id": "1b91eb58-b70e-4a45-aa29-28540f377794",
         "title": "${alert('Client-Side')}",
         "done": false
     },
     {
-        "id": "0cee9205-b5bc-4473-b3f8-60aa06dd0bcc",
+        "id": "ccb58bfe-6d76-443e-9ce0-147e245e921c",
         "title": "Valid Title",
         "done": false
     }

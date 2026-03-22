@@ -1,5 +1,7 @@
 # Full-Stack To-Do List Application
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 This is a complete full-stack web application featuring a modern frontend, a robust backend, and a fully containerized deployment environment using Docker. The application allows users to create, view, update, and delete tasks in a clean, responsive interface.
 
 ---
